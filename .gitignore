@@ -1,1 +1,4 @@
+/.claude
 /vim/plugged
+/vim/viminfo
+/zsh/.zsh_sessions

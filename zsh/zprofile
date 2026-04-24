@@ -1,7 +1,0 @@
-if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-  read -t 1 wm
-  case $wm in
-    '') exec sway;;
-    *) exit 0;;
-  esac
-fi

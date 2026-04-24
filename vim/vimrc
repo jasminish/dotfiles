@@ -23,6 +23,8 @@ set clipboard=unnamedplus
 set noswapfile
 set backupdir=~/.cache/vim
 set runtimepath+=~/.local/share/vim
+set viminfo+=n~/.config/vim/viminfo
+
 
 " plugins
 " automated installation of vimplug if not installed
@@ -41,7 +43,6 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
 call plug#end()
 
-set termguicolors
 colorscheme catppuccin_mocha
 
 " keybindings
@@ -50,6 +51,12 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " statusline
+function! GitStatus()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return printf('+%d ~%d -%d', a, m, r)
+endfunction
 set laststatus=2
-set noshowmode
+set statusline=%f\ [%l/%L] 
+set statusline+=%=
+set statusline+=%{GitStatus()} 
 

@@ -2,6 +2,7 @@
 unsetopt flow_control
 export EDITOR=/usr/bin/vim
 export VIMINIT='source ~/.config/vim/vimrc'
+export GIT_CONFIG_GLOBAL="$HOME/.config/gitconfig"
 
 export ZSH_COMPDUMP=~/.cache/zsh/.zcompdump-$HOST
 export HISTFILE=~/.cache/zsh/.zhistory
@@ -55,8 +56,3 @@ alias mkdir='mkdir -p'
 alias pls='sudo -E'
 alias src='source ~/.zshrc'
 
-# yay
-alias yayls='yay -Qq'
-alias yayin='yay -S'
-alias yayrm='yay -Rns'
-alias yayup='yay -Yc && yay -Syu --devel --timeupdate'
